@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h2>
+    <a href="{{ url_for('index') }}" class="btn btn-sm btn-warning">Show Users</a>
+</h2>
+
+<hr/>
+
+{%- for category, message in get_flashed_messages(with_categories = true) %}
+    <div class = "alert alert-{{'success' if category == 'success' else 'danger'}} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{%- endfor %}
+
+<form action="{{ request.path }}" method="post">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control form-control-sm" name="name" id="name" placeholder="Name">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control form-control-sm" name="email" id="email" placeholder="Email">
+    </div>
+    <div class="mb-3">
+        <label for="birthdate" class="form-label">Date of Birth</label>
+        <input type="date" class="form-control form-control-sm" name="birthdate" id="birthdate" placeholder="Date of Birth">
+    </div>
+    <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+</form>
+
+{% endblock content %}

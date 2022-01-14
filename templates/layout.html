@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+    {% include '_partials/head.html' %}
+    <body>
+        <div class="container">
+            <h1 class="text-center">Flask ORM - Users</h1>
+            <div class="col-md-8 offset-md-2"
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
+    {% include '_partials/footer.html' %}
+    </body>
+</html>
